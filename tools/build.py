@@ -17,7 +17,7 @@ ME = ("H. Kavianirad", "H. Kaviani Rad", "H. K. Rad")
 SITE_URL = "https://kavianirad.github.io"
 EMAIL = "hossein.kavianirad@tum.de"
 SCHOLAR = "https://scholar.google.com/citations?user=DqDqY38AAAAJ&hl=en"
-LINKEDIN = "https://www.linkedin.com/in/hossein-kavianirad-b23360139/"
+LINKEDIN = "https://www.linkedin.com/in/hossein-kaviani-rad-b23360139/"
 GITHUB = "https://github.com/kavianirad"
 TUM = "https://www.ce.cit.tum.de/itr/kavianirad/"
 DBLP = "https://dblp.org/pid/360/8415"
