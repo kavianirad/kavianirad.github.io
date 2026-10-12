@@ -10,6 +10,8 @@ No dependencies beyond the Python standard library.
 """
 import html
 import os
+import re
+import urllib.parse
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ME = ("H. Kavianirad", "H. Kaviani Rad", "H. K. Rad")
@@ -26,6 +28,7 @@ DBLP = "https://dblp.org/pid/360/8415"
 PUBLICATIONS = [
     dict(
         key="cazenave2026hybrid", year=2026, type="journal", badge="JRATE",
+        highlights=["Clinical study with stroke patients"],
         title="Hybrid robot & FES rehabilitation after stroke: Short-term performance, fatigue, and patient experience",
         authors=["L. Cazenave", "C. Höhler", "S. Endo", "H. Kavianirad", "et al."],
         venue="Journal of Rehabilitation and Assistive Technologies Engineering, vol. 13, 2026",
@@ -43,6 +46,7 @@ PUBLICATIONS = [
     ),
     dict(
         key="hoehler2025repetitive", year=2025, type="journal", badge="Artif. Organs",
+        highlights=["Clinical study with stroke patients"],
         title="Repetitive Grasping After Stroke Assisted by Functional Electrical Stimulation",
         authors=["C. Höhler", "S. Endo", "J. Hermsdörfer", "L. Cazenave", "H. Kavianirad", "K. Jahn", "C. Krewer"],
         venue="Artificial Organs, 2025",
@@ -51,6 +55,7 @@ PUBLICATIONS = [
     ),
     dict(
         key="kavianirad2024dexterous", year=2024, type="conference", badge="BioRob", selected=True,
+        highlights=["Featured in TUM press release (ReHyb)"],
         title="Toward Dexterous Hand Functional Movement: Wearable Hybrid Soft Exoglove-FES Study",
         authors=["H. Kavianirad", "F. Missiroli", "S. Endo", "L. Masia", "S. Hirche"],
         venue="IEEE RAS/EMBS International Conference for Biomedical Robotics and Biomechatronics (BioRob), pp. 1346–1351, 2024",
@@ -60,6 +65,7 @@ PUBLICATIONS = [
     ),
     dict(
         key="das2024framework", year=2024, type="conference", badge="BioRob", selected=True,
+        highlights=["Featured in TUM press release (ReHyb)"],
         title="Framework for Learning a Hand Intent Recognition Model from sEMG for FES-Based Control",
         authors=["N. Das", "S. Endo", "H. Kavianirad", "S. Hirche"],
         venue="IEEE RAS/EMBS International Conference for Biomedical Robotics and Biomechatronics (BioRob), pp. 1320–1327, 2024",
@@ -144,6 +150,9 @@ NEWS = [
     ("2022", 'Received the <strong>Best Paper Award</strong> at IEEE-EMBS IECBES 2022 for EMG-based volitional torque estimation in FES control.'),
 ]
 
+# Fallback shown until the daily Google Scholar update has run (from the CV, Oct 2026).
+STATS = {"citations": 102, "h_index": 5}
+
 TYPE_LABEL = {"journal": "Journal", "conference": "Conference", "workshop": "Workshop", "preprint": "Preprint"}
 
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
@@ -174,17 +183,40 @@ def bibtex(p):
     return f"@{p['bib_type']}{{{p['key']},\n{body}\n}}"
 
 
+def plain_citation(p):
+    names = [a for a in p["authors"] if a != "et al."]
+    who = ", ".join(names[:-1]) + (", and " + names[-1] if len(names) > 1 else names[0])
+    if "et al." in p["authors"]:
+        who += ", et al."
+    return f'{who}, "{p["title"]}," {p["venue"]}.'
+
+
+def norm_title(t):
+    return re.sub(r"[^a-z0-9]", "", t.lower())
+
+
 def pub_html(p, prefix):
     links = "".join(f'<a href="{esc(u)}" target="_blank" rel="noopener">{esc(n)}</a>' for n, u in p["links"].items())
     bib_id = f"{prefix}-bib-{p['key']}"
-    award = f'\n          <div class="pub-award"><i class="fa-solid fa-trophy"></i> {esc(p["award"])}</div>' if p.get("award") else ""
+    notes = []
+    if p.get("award"):
+        notes.append(f'<span class="pub-award"><i class="fa-solid fa-trophy"></i> {esc(p["award"])}</span>')
+    for h in p.get("highlights", []):
+        notes.append(f'<span class="pub-note">{esc(h)}</span>')
+    if p["authors"][0] in ME:
+        notes.append('<span class="pub-note first">First author</span>')
+    notes_html = f'\n          <div class="pub-notes">{"".join(notes)}</div>' if notes else ""
+    scholar_q = "https://scholar.google.com/scholar?q=" + urllib.parse.quote(f'"{p["title"]}"')
+    badge = (f'<a class="scholar-badge" data-title="{norm_title(p["title"])}" href="{scholar_q}" target="_blank" rel="noopener" '
+             f'title="Google Scholar citations"><span class="sb-l"><i class="ai ai-google-scholar"></i> scholar</span>'
+             f'<span class="sb-n" hidden></span></a>')
     return f"""      <li class="pub" data-type="{p['type']}">
         <div class="venue-badge {p['type']}" title="{TYPE_LABEL[p['type']]}">{esc(p['badge'])}</div>
         <div>
           <div class="pub-title">{esc(p['title'])}</div>
           <div class="pub-authors">{authors_html(p['authors'])}</div>
-          <div class="pub-venue">{esc(p['venue'])}</div>{award}
-          <div class="pub-links">{links}<button type="button" data-bib="{bib_id}">BibTeX</button></div>
+          <div class="pub-venue">{esc(p['venue'])}</div>{notes_html}
+          <div class="pub-links">{links}<button type="button" data-bib="{bib_id}">BibTeX</button><button type="button" class="cite-btn" data-cite="{esc(plain_citation(p))}">Cite</button>{badge}</div>
           <pre class="bibtex" id="{bib_id}">{esc(bibtex(p))}</pre>
         </div>
       </li>"""
@@ -398,6 +430,13 @@ def build_publications():
     <header class="page-head">
       <h1>Publications</h1>
       <p>Also on <a href="{SCHOLAR}">Google Scholar</a>, <a href="{DBLP}">dblp</a>, and the <a href="{TUM}">TUM ITR page</a>.</p>
+      <dl class="stats" id="scholar-stats">
+        <div><dt>Publications</dt><dd>{len(PUBLICATIONS)}</dd></div>
+        <div><dt>Citations</dt><dd data-stat="citations">{STATS["citations"]}</dd></div>
+        <div><dt>h-index</dt><dd data-stat="h_index">{STATS["h_index"]}</dd></div>
+        <div><dt>Awards</dt><dd>{sum(1 for p in PUBLICATIONS if p.get("award"))}</dd></div>
+      </dl>
+      <p class="stats-note">Citation counts from <a href="{SCHOLAR}">Google Scholar</a>, updated daily<span id="scholar-updated"></span>.</p>
     </header>
     <section>
       <div class="filters" role="group" aria-label="Filter by type">{filters}</div>

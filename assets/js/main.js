@@ -67,6 +67,40 @@
       if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, function () {});
     });
 
+    document.querySelectorAll(".cite-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var text = btn.getAttribute("data-cite");
+        var done = function () { btn.textContent = "Copied"; setTimeout(function () { btn.textContent = "Cite"; }, 1500); };
+        if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, function () { window.prompt("Copy citation:", text); });
+        else window.prompt("Copy citation:", text);
+      });
+    });
+
+    // Google Scholar citation counts, refreshed daily by a GitHub Action.
+    var badges = document.querySelectorAll(".scholar-badge");
+    if (badges.length && window.fetch) {
+      fetch("https://raw.githubusercontent.com/kavianirad/kavianirad.github.io/google-scholar-stats/gs_data.json", { cache: "no-cache" })
+        .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then(function (data) {
+          var pubs = data.publications || {};
+          badges.forEach(function (b) {
+            var p = pubs[b.getAttribute("data-title")];
+            if (!p) return;
+            var n = b.querySelector(".sb-n");
+            n.textContent = p.citations;
+            n.hidden = false;
+            if (p.url) b.href = p.url;
+          });
+          document.querySelectorAll("[data-stat]").forEach(function (el) {
+            var v = data[el.getAttribute("data-stat")];
+            if (v) el.textContent = v;
+          });
+          var u = document.getElementById("scholar-updated");
+          if (u && data.updated) u.textContent = " (last update " + data.updated + ")";
+        })
+        .catch(function () {});
+    }
+
     var y = document.getElementById("year");
     if (y) y.textContent = new Date().getFullYear();
   });
