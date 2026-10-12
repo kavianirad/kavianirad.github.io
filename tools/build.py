@@ -210,7 +210,7 @@ def pub_html(p, prefix):
     badge = (f'<a class="scholar-badge" data-title="{norm_title(p["title"])}" href="{scholar_q}" target="_blank" rel="noopener" '
              f'title="Google Scholar citations"><span class="sb-l"><i class="ai ai-google-scholar"></i> scholar</span>'
              f'<span class="sb-n" hidden></span></a>')
-    return f"""      <li class="pub" data-type="{p['type']}">
+    return f"""      <li class="pub" id="{p['key'] if prefix == 'all' else prefix + '-' + p['key']}" data-type="{p['type']}">
         <div class="venue-badge {p['type']}" title="{TYPE_LABEL[p['type']]}">{esc(p['badge'])}</div>
         <div>
           <div class="pub-title">{esc(p['title'])}</div>
@@ -301,10 +301,9 @@ def build_index():
       <div>
         <h1>Hossein Kavianirad</h1>
         <div class="role"><strong>Doctoral Researcher</strong> · Chair of Information-oriented Control (ITR) · Technical University of Munich</div>
-        <p>I am a PhD candidate at the <a href="https://www.ce.cit.tum.de/itr/">Chair of Information-oriented Control</a>, Technical University of Munich, supervised by <a href="https://www.ce.cit.tum.de/itr/hirche/">Prof. Sandra Hirche</a>. My research is on <strong>cooperative shared control of hybrid FES-exoskeletons</strong>: wearable systems that combine functional electrical stimulation of the user's own muscles with robotic actuation to restore arm and hand function after stroke and for activities of daily living.</p>
-        <p>I work on <strong>EMG-based estimation of voluntary effort</strong> under stimulation, <strong>participant-specific neuromuscular modeling</strong>, and <strong>dynamic control allocation</strong> that shares assistance between FES and robot according to user participation, actuator limits, and rehabilitation goals. This work is part of the EU project <a href="https://idw-online.de/de/news848815">ReHyb</a> with clinical evaluation in stroke patients.</p>
-        <p>My work on EMG-based torque estimation received the <strong>Best Paper Award at IEEE-EMBS IECBES 2022</strong>.</p>
-        <p>Before TUM, I was a researcher at the Shiraz University Research Center working on dynamics, control, and system identification. I received my M.Sc. in Mechanical Engineering from Sharif University of Technology (ranked 2nd of 151) and my B.Sc. from Shiraz University (ranked 1st of 89), with work on boundary control of flexible structures and contact mechanics.</p>
+        <p>I am a PhD candidate at the <a href="https://www.ce.cit.tum.de/itr/">Chair of Information-oriented Control</a>, Technical University of Munich, advised by <a href="https://www.ce.cit.tum.de/itr/hirche/">Prof. Sandra Hirche</a>. I develop <strong>cooperative shared control for hybrid FES-exoskeletons</strong>, wearable systems that combine electrical stimulation of a person's own muscles with robotic assistance to restore arm and hand function after stroke.</p>
+        <p>My work spans participant-specific neuromuscular modeling, EMG-based estimation of voluntary effort under stimulation, and dynamic allocation of effort between muscles and motors, validated in human studies and with stroke patients in the EU Horizon project <a href="https://idw-online.de/de/news848815">ReHyb</a>. I trained in mechanical engineering and control at Sharif University of Technology and Shiraz University.</p>
+        <p class="status"><span class="dot" aria-hidden="true"></span>Open to postdoctoral and research positions in control, rehabilitation robotics and human-robot interaction.</p>
         <div class="socials">
           <a href="mailto:{EMAIL}"><i class="fa-solid fa-envelope"></i>Email</a>
           <a href="{SCHOLAR}"><i class="ai ai-google-scholar"></i>Google Scholar</a>
@@ -321,19 +320,51 @@ def build_index():
       </div>
     </section>
 
-    <section id="interests">
-      <h2 class="section-title">Research interests</h2>
-      <ul class="chips">
-        <li>Shared &amp; cooperative control</li>
-        <li>Hybrid FES-exoskeletons</li>
-        <li>Functional electrical stimulation</li>
-        <li>Rehabilitation robotics</li>
-        <li>EMG &amp; biosignal processing</li>
-        <li>Electrical impedance tomography</li>
-        <li>Neuromuscular modeling</li>
-        <li>System identification</li>
-        <li>Dynamics &amp; nonlinear control</li>
-      </ul>
+    <section class="highlights" aria-label="Highlights">
+      <div class="hl"><span class="hl-k">Best Paper Award</span><span class="hl-v">IEEE-EMBS IECBES 2022</span></div>
+      <div class="hl"><span class="hl-k">{len(PUBLICATIONS)} publications</span><span class="hl-v">ICORR, BioRob, JSV, Acta Astronautica</span></div>
+      <div class="hl"><span class="hl-k">EU Horizon ReHyb</span><span class="hl-v">clinical studies with stroke patients</span></div>
+      <div class="hl"><span class="hl-k">10+ students</span><span class="hl-v">theses and projects supervised</span></div>
+    </section>
+
+    <section id="research">
+      <h2 class="section-title">Research</h2>
+      <p class="lede">Hybrid FES-exoskeletons are redundant: the same joint torque can come from stimulated muscles, from motors, or from the user's own effort. My thesis, <em>Cooperative Shared Control of Hybrid FES-Exoskeleton</em>, asks how to model each source, estimate the user's contribution, and share the work between them safely and comfortably.</p>
+      <div class="projects">
+        <article class="project">
+          <figure><img src="assets/img/research/modeling.jpg" alt="Diagram of the stimulation-to-torque pathway from FES electrodes through muscle activation to joint torque" loading="lazy"></figure>
+          <div>
+            <h3>Neuromuscular modeling for FES</h3>
+            <p>Participant-specific, control-oriented models of the stimulation-to-torque pathway that capture inter-individual variability, fatigue and the attainable torque of each muscle group.</p>
+            <div class="project-links"><a href="publications/#sena2022gap">Sim2Real 2022</a><a href="publications/#kavianirad2023model">ICORR 2023</a></div>
+          </div>
+        </article>
+        <article class="project">
+          <figure><img src="assets/img/research/emg.jpg" alt="Rendering of the forearm EMG and stimulation setup with the upper-limb musculoskeletal model" loading="lazy"></figure>
+          <div>
+            <h3>Volitional effort from EMG during stimulation</h3>
+            <p>An adaptive filter removes stimulation artifacts from surface EMG so the user's voluntary torque and hand intent can be estimated in real time and kept in the loop.</p>
+            <div class="project-links"><a href="publications/#kavianirad2022emg">IECBES 2022 · Best Paper</a><a href="publications/#das2024framework">BioRob 2024</a></div>
+          </div>
+        </article>
+        <article class="project">
+          <figure><img src="assets/img/research/allocation.jpg" alt="Hybrid FES-exoskeleton on a wheelchair with stimulation module, electrodes and force-torque sensor" loading="lazy"></figure>
+          <div>
+            <h3>Shared control and dynamic allocation</h3>
+            <p>Model-based shared control and a dynamic control allocator that distributes torque between FES and exoskeleton in real time, respecting device limits, fatigue and user preference, with stability guarantees.</p>
+            <div class="project-links"><a href="publications/#kavianirad2023model">ICORR 2023</a><a href="publications/#kavianirad2025dynamic">arXiv 2025</a><a href="publications/#cazenave2026hybrid">JRATE 2026</a></div>
+          </div>
+        </article>
+        <article class="project">
+          <figure><img src="assets/img/research/hand.jpg" alt="Hand with motion-capture markers and the matching inverse-kinematics hand model during exoglove and FES grasping" loading="lazy"></figure>
+          <div>
+            <h3>Dexterous hand function</h3>
+            <p>A wearable soft exoglove combined with multi-array FES for functional finger and thumb movements, at least doubling finger mobility compared with stimulation alone.</p>
+            <div class="project-links"><a href="publications/#kavianirad2024dexterous">BioRob 2024</a><a href="publications/#hoehler2025repetitive">Artif. Organs 2025</a></div>
+          </div>
+        </article>
+      </div>
+      <p class="fig-credit">Figures from my dissertation, CC BY 4.0.</p>
     </section>
 
     <section id="news">
@@ -341,32 +372,6 @@ def build_index():
       <ul class="news">
 {news}
       </ul>
-    </section>
-
-    <section id="research">
-      <h2 class="section-title">Research</h2>
-      <div class="cards">
-        <div class="card">
-          <div class="card-icon"><i class="fa-solid fa-people-arrows"></i></div>
-          <h3>Shared control of hybrid FES-exoskeletons</h3>
-          <p>Model-based and cooperative controllers that combine muscle stimulation and robotic torque, with dynamic allocation that respects device limits, fatigue, and user preference.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon"><i class="fa-solid fa-wave-square"></i></div>
-          <h3>EMG-based intent &amp; effort estimation</h3>
-          <p>Estimating the user's volitional torque and hand intent from surface EMG despite stimulation artifacts, to keep the patient actively engaged in therapy.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon"><i class="fa-solid fa-hand"></i></div>
-          <h3>Dexterous hand assistance</h3>
-          <p>Wearable soft exogloves combined with FES for functional finger and wrist movements, evaluated with healthy participants and stroke patients.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon"><i class="fa-solid fa-satellite"></i></div>
-          <h3>Dynamics &amp; control of flexible systems</h3>
-          <p>Earlier work on boundary control of flexible satellite appendages with exponential stability, and contact models for granular particle collisions.</p>
-        </div>
-      </div>
     </section>
 
     <section id="publications">
