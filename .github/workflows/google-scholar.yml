@@ -19,7 +19,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install scholarly==1.7.11
+      - run: pip install scholarly==1.7.11 "httpx<0.28"
       - run: python tools/scholar_stats.py "$RUNNER_TEMP/gs_data.json"
       - name: Push to google-scholar-stats branch
         run: |
