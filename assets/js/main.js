@@ -83,6 +83,7 @@
         .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
         .then(function (data) {
           var pubs = data.publications || {};
+          var google = data.source !== "semantic_scholar";
           badges.forEach(function (b) {
             var p = pubs[b.getAttribute("data-title")];
             if (!p) return;
@@ -90,13 +91,18 @@
             n.textContent = p.citations;
             n.hidden = false;
             if (p.url) b.href = p.url;
+            if (!google) {
+              b.title = "Citations (Semantic Scholar)";
+              b.querySelector(".sb-l").innerHTML = '<i class="fa-solid fa-quote-right"></i> cited';
+            }
           });
-          document.querySelectorAll("[data-stat]").forEach(function (el) {
+          if (google) document.querySelectorAll("[data-stat]").forEach(function (el) {
             var v = data[el.getAttribute("data-stat")];
             if (v) el.textContent = v;
           });
           var u = document.getElementById("scholar-updated");
-          if (u && data.updated) u.textContent = " (last update " + data.updated + ")";
+          if (u && data.updated) u.textContent = google ? " (last update " + data.updated + ")"
+            : ". Per-paper counts from Semantic Scholar (" + data.updated + ")";
         })
         .catch(function () {});
     }
