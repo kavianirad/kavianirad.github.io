@@ -436,7 +436,7 @@ def build_publications():
         <div><dt>h-index</dt><dd data-stat="h_index">{STATS["h_index"]}</dd></div>
         <div><dt>Awards</dt><dd>{sum(1 for p in PUBLICATIONS if p.get("award"))}</dd></div>
       </dl>
-      <p class="stats-note">Citation counts from <a href="{SCHOLAR}">Google Scholar</a>, updated daily<span id="scholar-updated"></span>.</p>
+      <p class="stats-note">Totals from <a href="{SCHOLAR}">Google Scholar</a><span id="scholar-updated"></span>.</p>
     </header>
     <section>
       <div class="filters" role="group" aria-label="Filter by type">{filters}</div>

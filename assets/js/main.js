@@ -101,8 +101,8 @@
             if (v) el.textContent = v;
           });
           var u = document.getElementById("scholar-updated");
-          if (u && data.updated) u.textContent = google ? " (last update " + data.updated + ")"
-            : ". Per-paper counts from Semantic Scholar (" + data.updated + ")";
+          if (u && data.updated) u.textContent = google ? ", updated daily (last update " + data.updated + ")"
+            : "; per-paper citation counts from Semantic Scholar, updated daily (last update " + data.updated + ")";
         })
         .catch(function () {});
     }
