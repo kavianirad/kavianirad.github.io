@@ -30,7 +30,7 @@ PUBLICATIONS = [
         key="cazenave2026hybrid", year=2026, type="journal", badge="JRATE",
         highlights=["Clinical study with stroke patients"],
         title="Hybrid robot & FES rehabilitation after stroke: Short-term performance, fatigue, and patient experience",
-        authors=["L. Cazenave", "C. Höhler", "S. Endo", "H. Kavianirad", "et al."],
+        authors=["L. Cazenave", "C. Höhler", "S. Endo", "H. Kavianirad", "N. Peña-Pérez", "L.-M. Huber", "A. Yurkewich", "T. Keller", "S. Hirche", "K. Jahn", "et al."],
         venue="Journal of Rehabilitation and Assistive Technologies Engineering, vol. 13, 2026",
         links={"DOI": "https://doi.org/10.1177/20556683261488467"},
         bib_type="article", bib_venue=("journal", "Journal of Rehabilitation and Assistive Technologies Engineering"),
@@ -38,10 +38,11 @@ PUBLICATIONS = [
     ),
     dict(
         key="kavianirad2025dynamic", year=2025, type="preprint", badge="arXiv", selected=True,
+        highlights=["Under review at IEEE Transactions on Control Systems Technology"],
         title="Cooperative Control of Hybrid FES-Exoskeleton: Dynamic Allocation",
         authors=["H. Kavianirad", "S. Endo", "D. Astarita", "L. Amato", "E. Trigili", "S. Hirche"],
-        venue="arXiv preprint arXiv:2511.10117, 2025",
-        links={"arXiv": "https://arxiv.org/abs/2511.10117", "PDF": "https://arxiv.org/pdf/2511.10117"},
+        venue="arXiv preprint arXiv:2511.10117, 2025 (under review at IEEE Transactions on Control Systems Technology)",
+        links={"arXiv": "https://arxiv.org/abs/2511.10117", "PDF": "https://arxiv.org/pdf/2511.10117", "DOI": "https://doi.org/10.48550/arXiv.2511.10117"},
         bib_type="article", bib_venue=("journal", "arXiv preprint arXiv:2511.10117"), bib_extra={},
     ),
     dict(
@@ -97,7 +98,7 @@ PUBLICATIONS = [
         title="The Gap in Functional Electrical Stimulation Simulation",
         authors=["A. Sena", "H. Kavianirad", "S. Endo", "E. Burdet", "S. Hirche"],
         venue="3rd Workshop on Closing the Reality Gap in Sim2Real Transfer for Robotics (RSS), 2022",
-        links={"PDF": "https://sim2real.github.io/assets/papers/2022/sena.pdf"},
+        links={"PDF": "https://sim2real.github.io/assets/papers/2022/sena.pdf", "mediaTUM": "https://mediatum.ub.tum.de/node?id=1692363"},
         bib_type="inproceedings", bib_venue=("booktitle", "3rd Workshop on Closing the Reality Gap in Sim2Real Transfer for Robotics"), bib_extra={},
     ),
     dict(
@@ -105,31 +106,31 @@ PUBLICATIONS = [
         title="Boundary control of flexible satellite vibration in planar motion",
         authors=["H. K. Rad", "H. Salarieh", "A. Alasty", "R. Vatankhah"],
         venue="Journal of Sound and Vibration, vol. 432, pp. 549–568, 2018",
-        links={"Publisher": "https://www.sciencedirect.com/science/article/abs/pii/S0022460X18304206"},
-        bib_type="article", bib_venue=("journal", "Journal of Sound and Vibration"), bib_extra={"volume": "432", "pages": "549--568"},
+        links={"DOI": "https://doi.org/10.1016/j.jsv.2018.06.052"},
+        bib_type="article", bib_venue=("journal", "Journal of Sound and Vibration"), bib_extra={"volume": "432", "pages": "549--568", "doi": "10.1016/j.jsv.2018.06.052"},
     ),
     dict(
         key="rad2018antisymmetric", year=2018, type="journal", badge="Acta Astronaut.",
         title="Boundary control of anti-symmetric vibration of satellite with flexible appendages in planar motion with exponential stability",
         authors=["H. K. Rad", "H. Salarieh", "A. Alasty", "R. Vatankhah"],
         venue="Acta Astronautica, vol. 147, pp. 219–230, 2018",
-        links={"Publisher": "https://www.sciencedirect.com/science/article/abs/pii/S0094576517318222"},
-        bib_type="article", bib_venue=("journal", "Acta Astronautica"), bib_extra={"volume": "147", "pages": "219--230"},
+        links={"DOI": "https://doi.org/10.1016/j.actaastro.2018.03.050"},
+        bib_type="article", bib_venue=("journal", "Acta Astronautica"), bib_extra={"volume": "147", "pages": "219--230", "doi": "10.1016/j.actaastro.2018.03.050"},
     ),
     dict(
         key="kavianirad2018frictional", year=2018, type="journal", badge="Granular Matter",
         title="Frictional viscoelastic based model for spherical particles collision",
         authors=["H. Kaviani Rad", "H. Nejat Pishkenari"],
-        venue="Granular Matter, vol. 20, pp. 1–10, 2018",
-        links={"Publisher": "https://link.springer.com/article/10.1007/s10035-018-0835-9"},
+        venue="Granular Matter, vol. 20, no. 4, art. 62, 2018",
+        links={"DOI": "https://doi.org/10.1007/s10035-018-0835-9"},
         bib_type="article", bib_venue=("journal", "Granular Matter"), bib_extra={"volume": "20", "doi": "10.1007/s10035-018-0835-9"},
     ),
     dict(
         key="nejat2017transformation", year=2017, type="journal", badge="Granular Matter",
         title="Transformation of sliding motion to rolling during spheres collision",
         authors=["H. Nejat Pishkenari", "H. Kaviani Rad", "H. Jafari Shad"],
-        venue="Granular Matter, vol. 19, pp. 1–13, 2017",
-        links={"Publisher": "https://link.springer.com/article/10.1007/s10035-017-0755-0"},
+        venue="Granular Matter, vol. 19, no. 4, art. 70, 2017",
+        links={"DOI": "https://doi.org/10.1007/s10035-017-0755-0"},
         bib_type="article", bib_venue=("journal", "Granular Matter"), bib_extra={"volume": "19", "doi": "10.1007/s10035-017-0755-0"},
     ),
 ]
@@ -139,7 +140,7 @@ NEWS = [
                  '<a href="https://www.ce.cit.tum.de/ics/news/article/the-next-doctoral-seminar-talk-will-take-place-next-monday-july-20th-and-will-be-given-by-hossein-kavianirad-the-title-of-the-talk-is-cooperative-shared-control-of-hybrid-fes-exoskeleton/">Announcement</a>'),
     ("2026", 'Journal paper on hybrid robot &amp; FES rehabilitation after stroke published in <em>JRATE</em>. '
              '<a href="https://doi.org/10.1177/20556683261488467">Paper</a>'),
-    ("Nov 2025", 'New preprint: <em>Cooperative Control of Hybrid FES-Exoskeleton: Dynamic Allocation</em>. '
+    ("Nov 2025", 'New preprint, under review at <em>IEEE Transactions on Control Systems Technology</em>: <em>Cooperative Control of Hybrid FES-Exoskeleton: Dynamic Allocation</em>. '
                  '<a href="https://arxiv.org/abs/2511.10117">arXiv</a>'),
     ("Mar 2025", 'Our EU project <strong>ReHyb</strong> on hybrid FES-exoskeleton stroke rehabilitation was featured in a TUM press release. '
                  '<a href="https://idw-online.de/de/news848815">Press release</a> · <a href="https://youtu.be/OboVMCkM9Yk">Video</a>'),
@@ -302,7 +303,7 @@ def build_index():
         <h1>Hossein Kavianirad</h1>
         <div class="role"><strong>Doctoral Researcher</strong> · Chair of Information-oriented Control (ITR) · Technical University of Munich</div>
         <p>I am a PhD candidate at the <a href="https://www.ce.cit.tum.de/itr/">Chair of Information-oriented Control</a>, Technical University of Munich, advised by <a href="https://www.ce.cit.tum.de/itr/hirche/">Prof. Sandra Hirche</a>. I develop <strong>cooperative shared control for hybrid FES-exoskeletons</strong>, wearable systems that combine electrical stimulation of a person's own muscles with robotic assistance to restore arm and hand function after stroke.</p>
-        <p>My work spans participant-specific neuromuscular modeling, EMG-based estimation of voluntary effort under stimulation, and dynamic allocation of effort between muscles and motors, validated in human studies and with stroke patients in the EU Horizon project <a href="https://idw-online.de/de/news848815">ReHyb</a>. I trained in mechanical engineering and control at Sharif University of Technology and Shiraz University.</p>
+        <p>My work spans participant-specific neuromuscular modeling, EMG-based estimation of voluntary effort under stimulation, and dynamic allocation of effort between muscles and motors, validated in human studies and with stroke patients in the EU Horizon project <a href="https://idw-online.de/de/news848815">ReHyb</a>. I trained in mechanical engineering and control at Sharif University of Technology and Shiraz University, and expect to complete my PhD in early 2027.</p>
         <p class="status"><span class="dot" aria-hidden="true"></span>Open to postdoctoral and research positions in control, rehabilitation robotics and human-robot interaction.</p>
         <div class="socials">
           <a href="mailto:{EMAIL}"><i class="fa-solid fa-envelope"></i>Email</a>
@@ -312,7 +313,7 @@ def build_index():
           <a href="{DBLP}"><i class="ai ai-dblp"></i>dblp</a>
           <a href="assets/Kavianirad_CV.pdf"><i class="fa-solid fa-file-pdf"></i>CV (PDF)</a>
         </div>
-        <div class="callout"><i class="fa-solid fa-graduation-cap"></i>&nbsp; <strong>Students:</strong> I supervise Bachelor's and Master's theses in control, learning, dynamic modeling, and rehabilitation robotics. Feel free to email me with your CV and transcripts.</div>
+        <div class="callout"><i class="fa-solid fa-graduation-cap"></i>&nbsp; <strong>Students:</strong> I have supervised 16 students so far and offer Bachelor's and Master's theses in control, learning, dynamic modeling, and rehabilitation robotics. Feel free to email me with your CV and transcripts.</div>
       </div>
       <div class="hero-photo">
         <img src="assets/img/profile.jpg" alt="Portrait of Hossein Kavianirad" width="220" height="220">
@@ -324,7 +325,7 @@ def build_index():
       <div class="hl"><span class="hl-k">Best Paper Award</span><span class="hl-v">IEEE-EMBS IECBES 2022</span></div>
       <div class="hl"><span class="hl-k">{len(PUBLICATIONS)} publications</span><span class="hl-v">ICORR, BioRob, JSV, Acta Astronautica</span></div>
       <div class="hl"><span class="hl-k">EU Horizon ReHyb</span><span class="hl-v">clinical studies with stroke patients</span></div>
-      <div class="hl"><span class="hl-k">10+ students</span><span class="hl-v">theses and projects supervised</span></div>
+      <div class="hl"><span class="hl-k">16 students</span><span class="hl-v">theses and projects supervised</span></div>
     </section>
 
     <section id="research">
@@ -359,7 +360,7 @@ def build_index():
           <figure><img src="assets/img/research/hand.jpg" alt="Hand with motion-capture markers and the matching inverse-kinematics hand model during exoglove and FES grasping" loading="lazy"></figure>
           <div>
             <h3>Dexterous hand function</h3>
-            <p>A wearable soft exoglove combined with multi-array FES for functional finger and thumb movements, at least doubling finger mobility compared with stimulation alone.</p>
+            <p>A wearable soft exoglove combined with multi-array FES for functional finger and thumb movements, at least doubling finger mobility compared with stimulation alone. Ongoing: a hand prosthesis driven by high-density EMG for dexterous movements.</p>
             <div class="project-links"><a href="publications/#kavianirad2024dexterous">BioRob 2024</a><a href="publications/#hoehler2025repetitive">Artif. Organs 2025</a></div>
           </div>
         </article>
@@ -456,7 +457,7 @@ def build_publications():
 
 
 def build_cv():
-    page = f"""{head("CV · Hossein Kavianirad", "Curriculum vitae of Hossein Kavianirad: education, research experience and skills.", "../", "/cv/")}
+    page = f"""{head("CV · Hossein Kavianirad", "Curriculum vitae of Hossein Kavianirad: education, research experience, teaching, awards and skills.", "../", "/cv/")}
 <body>
 {nav("CV", "../")}
   <main class="container">
@@ -468,8 +469,32 @@ def build_cv():
 
     <section>
       <h2 class="section-title">Short bio</h2>
-      <p class="bio">Hossein Kavianirad is a doctoral researcher at the Chair of Information-oriented Control (ITR), Technical University of Munich, advised by Prof. Sandra Hirche. His research develops cooperative shared control for hybrid FES-exoskeletons that combine functional electrical stimulation with robotic actuation to restore arm and hand function after stroke, within the EU Horizon project ReHyb. He holds an M.Sc. in Mechanical Engineering from Sharif University of Technology and a B.Sc. from Shiraz University. He received the IEEE-EMBS IECBES 2022 Best Paper Award.</p>
+      <p class="bio">Hossein Kavianirad is a doctoral researcher at the Chair of Information-oriented Control (ITR), Technical University of Munich, advised by Prof. Sandra Hirche. His research covers control theory, learning-based and human-centric control, and shared and cooperative control of hybrid exoskeletons and wearable robots. He develops controllers for input-redundant systems that distribute effort between an exoskeleton and functional electrical stimulation while accounting for the user's intent, using dynamic allocation with stability guarantees, model predictive control and EMG-based intent estimation, tested with healthy participants and stroke patients in the EU Horizon 2020 project ReHyb. He holds an M.Sc. in Mechanical Engineering from Sharif University of Technology and a B.Sc. from Shiraz University, and received the IEEE-EMBS IECBES 2022 Best Paper Award.</p>
       <button type="button" class="copy-bio" id="copy-bio">Copy bio</button>
+    </section>
+
+    <section>
+      <h2 class="section-title">Education</h2>
+      <ul class="timeline">
+        <li>
+          <div class="when">04/2021 – 03/2027 (expected)</div>
+          <h3>Doctoral candidate, Electrical Engineering</h3>
+          <div class="where">Technical University of Munich, TUM School of Computation, Information and Technology</div>
+          <p>Chair of Information-oriented Control (ITR). Supervisor: Prof. Dr.-Ing. Sandra Hirche. Dissertation: <em>Cooperative Shared Control of Hybrid FES-Exoskeleton</em>.</p>
+        </li>
+        <li>
+          <div class="when">09/2015 – 09/2017</div>
+          <h3>M.Sc. Mechanical Engineering (Applied Mechanics)</h3>
+          <div class="where">Sharif University of Technology, Tehran</div>
+          <p>GPA 19.27/20, ranked 2nd of 151. Thesis: <em>Boundary Control of Vibration in Satellite Flexible Solar Panels</em> (Lyapunov-based boundary control, asymptotic and exponential stability, disturbance observer). Supervisors: Prof. H. Salarieh, Prof. A. Alasty.</p>
+        </li>
+        <li>
+          <div class="when">09/2011 – 09/2015</div>
+          <h3>B.Sc. Mechanical Engineering</h3>
+          <div class="where">Shiraz University</div>
+          <p>GPA 19.05/20, ranked 1st of 89. Project: <em>Energy harvesting in a piezoelastic beam excited by air flow</em> (supervisor: Prof. M. Farid).</p>
+        </li>
+      </ul>
     </section>
 
     <section>
@@ -477,39 +502,50 @@ def build_cv():
       <ul class="timeline">
         <li>
           <div class="when">04/2021 – present</div>
-          <h3>Doctoral Researcher (PhD Candidate)</h3>
-          <div class="where"><a href="https://www.ce.cit.tum.de/itr/">Chair of Information-oriented Control (ITR)</a>, Technical University of Munich, Germany</div>
-          <p>Advisor: Prof. Sandra Hirche. Thesis topic: cooperative shared control of hybrid FES-exoskeletons. EMG-based volitional effort estimation, participant-specific neuromuscular modeling, dynamic control allocation between FES and robotic actuation, soft exoglove-FES hand assistance. Research assistant in the EU Horizon project ReHyb; design and experimental evaluation of human-centered control strategies in clinical settings; supervised more than 10 student projects.</p>
+          <h3>Doctoral Researcher</h3>
+          <div class="where"><a href="https://www.ce.cit.tum.de/itr/">Chair of Information-oriented Control (ITR)</a>, Technical University of Munich</div>
+          <ul class="bullets">
+            <li>Designed shared and cooperative control for hybrid FES-exoskeletons: impedance-based shared control, MPC-based FES control, and a real-time dynamic allocator that redistributes torque between FES and exoskeleton under heterogeneous actuator constraints, with a stability proof. Extended it to personalized allocation based on participant-specific attainable sets.</li>
+            <li>Identified user-specific nonlinear, delayed and time-varying neuromuscular models from sparse data with learning-based methods, and estimated volitional torque from EMG with a novel adaptive filter (<a href="https://doi.org/10.1109/IECBES54088.2022.10079376">Best Paper Award</a>).</li>
+            <li>Ran studies with healthy participants and stroke patients on the NESM-γ elbow exoskeleton (Scuola Superiore Sant'Anna), the HRX-1 wrist robot (HumanRobotiX) and FES/EMG hardware (Tecnalia) in the EU Horizon 2020 project ReHyb (GA 871767), with Imperial College London and Schön Klinik Bad Aibling.</li>
+            <li>Developing a hand prosthesis driven by high-density EMG for dexterous hand movements (ongoing).</li>
+          </ul>
         </li>
         <li>
-          <div class="when">2017 – 2021</div>
-          <h3>Research Assistant, Control Engineer</h3>
+          <div class="when">10/2017 – 03/2021</div>
+          <h3>Researcher</h3>
           <div class="where">Shiraz University Research Center, Iran</div>
-          <p>Practical control and system identification with actuator-, sensor/CPU- and human-in-the-loop testing; embedded sensing and actuation, INS, data fusion and Kalman filtering; C/C++, MATLAB and microcontroller programming.</p>
+          <p>System identification and control; embedded ARM control systems (Keil) with sensors and actuators in C/C++.</p>
         </li>
       </ul>
     </section>
 
     <section>
-      <h2 class="section-title">Education</h2>
+      <h2 class="section-title">Teaching &amp; supervision</h2>
       <ul class="timeline">
         <li>
-          <div class="when">04/2021 – present</div>
-          <h3>Ph.D. in Control</h3>
-          <div class="where">Technical University of Munich, Germany</div>
-          <p>Dissertation: <em>Cooperative Shared Control of Hybrid FES-Exoskeleton</em>. Advisor: Prof. Sandra Hirche.</p>
+          <div class="when">2021 – present · 5 semesters</div>
+          <h3>Advanced Nonlinear Control</h3>
+          <div class="where">M.Sc. course, ITR, TUM</div>
+          <p>Supervision of student tutorial reports on advanced nonlinear-control topics, reviews and presentations.</p>
         </li>
         <li>
-          <div class="when">2015 – 2017</div>
-          <h3>M.Sc. in Mechanical Engineering</h3>
-          <div class="where">Sharif University of Technology, Tehran, Iran</div>
-          <p>GPA 19.27/20, ranked 2nd of 151. Thesis: <em>Boundary control of a flexible satellite (control design for hybrid PDE-ODE systems)</em>.</p>
+          <div class="when">SS 2023 – SS 2026 · 4 semesters</div>
+          <h3>Advanced Control and Robotics Lab</h3>
+          <div class="where">M.Sc. lab, LSR and ITR, TUM</div>
+          <p>Supervisor of the <em>Sliding Mode Control</em> experiment.</p>
         </li>
         <li>
-          <div class="when">2011 – 2015</div>
-          <h3>B.Sc. in Mechanical Engineering</h3>
-          <div class="where">Shiraz University, Iran</div>
-          <p>GPA 19.05/20, ranked 1st of 89. Thesis: <em>Energy harvesting in a piezoelastic beam excited by air flow</em>.</p>
+          <div class="when">2021 – present</div>
+          <h3>Thesis and project supervision: 16 students</h3>
+          <div class="where">Technical University of Munich</div>
+          <p>7 B.Sc. theses, 1 M.Sc. thesis, 2 research internships and 6 engineering internships.</p>
+        </li>
+        <li>
+          <div class="when">2015 – 2016</div>
+          <h3>Teaching assistant</h3>
+          <div class="where">Sharif University of Technology</div>
+          <p>Advanced Control (M.Sc., Fall 2016) and Dynamics (Fall 2015); laboratory assistant, Dynamics of Machinery and Vibrations Lab (three semesters).</p>
         </li>
       </ul>
     </section>
@@ -519,9 +555,9 @@ def build_cv():
       <ul class="timeline">
         <li><div class="when">2022</div><h3>Best Paper Award, IEEE-EMBS IECBES 2022</h3><div class="where">For “EMG-Based Volitional Torque Estimation in Functional Electrical Stimulation Control”</div></li>
         <li><div class="when">2015 – 2017</div><h3>Teaching assistantship funded by Iran's National Elites Foundation</h3></li>
-        <li><div class="when">2015 – 2016</div><h3>Distinguished Student of Mechanical Engineering</h3><div class="where">Sharif University of Technology</div></li>
-        <li><div class="when">2014 – 2015</div><h3>National Elites Foundation Fellowship &amp; Distinguished Student of Mechanical Engineering</h3><div class="where">Shiraz University</div></li>
-        <li><div class="when">2011</div><h3>Top 0.3% of over 350,000 candidates</h3><div class="where">Iranian National University Entrance Exam</div></li>
+        <li><div class="when">2015 – 2016</div><h3>Distinguished student of mechanical engineering</h3><div class="where">Sharif University of Technology</div></li>
+        <li><div class="when">2014 – 2015</div><h3>National Elites Foundation fellowship; distinguished student of mechanical engineering</h3><div class="where">Shiraz University</div></li>
+        <li><div class="when">2011 – 2017</div><h3>Ranked 2nd of 151 (M.Sc.) and 1st of 89 (B.Sc.)</h3><div class="where">Sharif University of Technology; Shiraz University</div></li>
       </ul>
     </section>
 
@@ -533,37 +569,18 @@ def build_cv():
           <h3>Cooperative Shared Control of Hybrid FES-Exoskeleton</h3>
           <div class="where">Doctoral seminar, TUM School of Computation, Information and Technology, Munich</div>
         </li>
-        <li>
-          <div class="when">2024</div>
-          <h3>Toward Dexterous Hand Functional Movement: Wearable Hybrid Soft Exoglove-FES Study</h3>
-          <div class="where">IEEE BioRob 2024</div>
-        </li>
-        <li>
-          <div class="when">2023</div>
-          <h3>Model-Based Shared Control of a Hybrid FES-Exoskeleton</h3>
-          <div class="where">ICORR 2023</div>
-        </li>
-        <li>
-          <div class="when">2022</div>
-          <h3>EMG-Based Volitional Torque Estimation in FES Control</h3>
-          <div class="where">IEEE-EMBS IECBES 2022</div>
-        </li>
       </ul>
-    </section>
-
-    <section>
-      <h2 class="section-title">Supervision</h2>
-      <p>Supervised more than 10 Bachelor's and Master's theses and student research projects at ITR in control, learning, dynamic modeling, and rehabilitation robotics.</p>
     </section>
 
     <section>
       <h2 class="section-title">Skills</h2>
-      <ul class="chips">
-        <li>Nonlinear &amp; optimal control</li><li>Control allocation</li>
-        <li>System identification</li><li>EMG signal processing</li><li>Functional electrical stimulation</li>
-        <li>Exoskeletons &amp; soft wearables</li><li>Human-subject experiments</li>
-        <li>Kalman filtering &amp; sensor fusion</li><li>Hardware-in-the-loop testing</li><li>MATLAB / Simulink</li><li>C / C++</li><li>Microcontroller programming</li>
-      </ul>
+      <dl class="skills">
+        <dt>Methods</dt><dd>Nonlinear, Lyapunov-based and boundary control · MPC · control allocation · shared control · system identification · learning-based modeling · EMG signal processing</dd>
+        <dt>Programming</dt><dd>MATLAB/Simulink · C/C++ · embedded ARM (Keil) · Python · Git/GitHub · Claude Code</dd>
+        <dt>Simulation &amp; CAD</dt><dd>MuJoCo · Simulink · Abaqus · SolidWorks</dd>
+        <dt>Hardware</dt><dd>Elbow and wrist exoskeletons · soft exoglove · prosthetic and dexterous robotic hands · multi-array FES · EMG and HD-EMG · force/torque sensors · IMUs · Qualisys motion capture · embedded real-time controllers</dd>
+        <dt>Languages</dt><dd>English (fluent) · German (basic) · Persian (native)</dd>
+      </dl>
     </section>
   </main>
 {footer("../")}
