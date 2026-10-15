@@ -47,19 +47,27 @@
     });
 
     // Publication filters: type (journal, conference, ...) and period (PhD / M.Sc.).
-    var state = { type: "all", era: "all" };
+    var state = { type: "all", era: "all", q: "" };
     var eraToggle = document.querySelector(".era-toggle");
     if (eraToggle) state.era = "phd";  // homepage: PhD papers by default
     function applyFilters() {
       document.querySelectorAll(".pub").forEach(function (p) {
+        var text = p.getAttribute("data-search") || (p.textContent + " " + (p.closest(".pub-group") ? p.closest(".pub-group").querySelector(".pub-year").textContent : "")).toLowerCase();
+        p.setAttribute("data-search", text);
         p.hidden = !((state.type === "all" || p.getAttribute("data-type") === state.type) &&
-                     (state.era === "all" || p.getAttribute("data-era") === state.era));
+                     (state.era === "all" || p.getAttribute("data-era") === state.era) &&
+                     state.q.split(/\s+/).every(function (w) { return !w || text.indexOf(w) !== -1; }));
       });
       document.querySelectorAll(".pub-group").forEach(function (g) {
         g.hidden = !g.querySelector(".pub:not([hidden])");
       });
       var empty = document.querySelector(".no-pubs");
       if (empty) empty.hidden = !!document.querySelector(".pub:not([hidden])");
+      var count = document.getElementById("pub-count");
+      if (count) {
+        var shown = document.querySelectorAll(".pub:not([hidden])").length, total = document.querySelectorAll(".pub").length;
+        count.textContent = shown === total ? "" : "Showing " + shown + " of " + total + " publications";
+      }
     }
     function wire(selector, attr, key) {
       var btns = document.querySelectorAll(selector);
@@ -73,7 +81,21 @@
     }
     wire("[data-filter]", "data-filter", "type");
     wire("[data-era-filter]", "data-era-filter", "era");
+    var search = document.getElementById("pub-search");
+    if (search) {
+      var initial = new URLSearchParams(location.search).get("q");
+      if (initial) { search.value = initial; state.q = initial.toLowerCase().trim(); }
+      search.addEventListener("input", function () { state.q = search.value.toLowerCase().trim(); applyFilters(); });
+    }
     if (document.querySelector(".pub")) applyFilters();
+
+    var toTop = document.getElementById("to-top");
+    if (toTop) {
+      var onScroll = function () { toTop.hidden = window.scrollY < 600; };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+      toTop.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
+    }
 
     var copyBtn = document.getElementById("copy-bio");
     if (copyBtn) copyBtn.addEventListener("click", function () {

@@ -24,6 +24,7 @@
   <script src="../assets/js/main.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <nav class="nav" aria-label="Main">
     <div class="container">
       <a class="brand" href="../">Hossein Kavianirad</a>
@@ -37,7 +38,7 @@
       </ul>
     </div>
   </nav>
-  <main class="container">
+  <main id="main" class="container">
     <header class="page-head">
       <h1>Publications</h1>
       <p>Also on <a href="https://scholar.google.com/citations?user=DqDqY38AAAAJ&hl=en">Google Scholar</a> and the <a href="https://www.ce.cit.tum.de/itr/kavianirad/">TUM ITR page</a>.</p>
@@ -50,8 +51,13 @@
       <p class="stats-note">Totals from <a href="https://scholar.google.com/citations?user=DqDqY38AAAAJ&hl=en">Google Scholar</a><span id="scholar-updated"></span>.</p>
     </header>
     <section>
+      <div class="pub-search">
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        <input type="search" id="pub-search" placeholder="Search by title, author, venue or year" aria-label="Search publications" autocomplete="off">
+      </div>
       <div class="filters" role="group" aria-label="Filter by period"><span class="filter-label">Period</span><button type="button" data-era-filter="all" aria-pressed="true">All</button><button type="button" data-era-filter="phd" aria-pressed="false">PhD · TUM (8)</button><button type="button" data-era-filter="msc" aria-pressed="false">M.Sc. · Sharif (4)</button></div>
       <div class="filters" role="group" aria-label="Filter by type"><span class="filter-label">Type</span><button type="button" data-filter="all" aria-pressed="true">All (12)</button><button type="button" data-filter="journal" aria-pressed="false">Journal (6)</button><button type="button" data-filter="conference" aria-pressed="false">Conference (4)</button><button type="button" data-filter="workshop" aria-pressed="false">Workshop (1)</button><button type="button" data-filter="preprint" aria-pressed="false">Preprint (1)</button></div>
+      <p class="pub-count" id="pub-count" aria-live="polite"></p>
       <p class="no-pubs" hidden>No publications match these filters.</p>
     <div class="pub-group">
       <h2 class="pub-year">2026</h2>
@@ -315,5 +321,6 @@
       </div>
     </div>
   </footer>
+  <button type="button" class="to-top" id="to-top" aria-label="Back to top" hidden><i class="fa-solid fa-arrow-up"></i></button>
 </body>
 </html>

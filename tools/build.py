@@ -233,7 +233,8 @@ def nav(active, base):
     lis = "\n".join(
         f'        <li><a href="{href}"{" aria-current=\"page\"" if name == active else ""}>{name}</a></li>'
         for name, href in items)
-    return f"""  <nav class="nav" aria-label="Main">
+    return f"""  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="nav" aria-label="Main">
     <div class="container">
       <a class="brand" href="{base}">Hossein Kavianirad</a>
       <button class="icon-btn menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><i class="fa-solid fa-bars"></i></button>
@@ -280,7 +281,8 @@ def footer(base):
         <a href="{GITHUB}" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
       </div>
     </div>
-  </footer>"""
+  </footer>
+  <button type="button" class="to-top" id="to-top" aria-label="Back to top" hidden><i class="fa-solid fa-arrow-up"></i></button>"""
 
 
 def person_jsonld():
@@ -301,7 +303,7 @@ def build_index():
     page = f"""{head("Hossein Kavianirad · TUM", "Hossein Kavianirad is a doctoral researcher at the Chair of Information-oriented Control, TUM, working on shared control of hybrid FES-exoskeletons for neurorehabilitation.", "", "/")}
 <body>
 {nav("About", "")}
-  <main class="container">
+  <main id="main" class="container">
     <section class="hero" id="about">
       <div>
         <h1>Hossein Kavianirad</h1>
@@ -453,7 +455,7 @@ def build_publications():
     page = f"""{head("Publications · Hossein Kavianirad", "Publications of Hossein Kavianirad on hybrid FES-exoskeletons, EMG-based control, and rehabilitation robotics.", "../", "/publications/")}
 <body>
 {nav("Publications", "../")}
-  <main class="container">
+  <main id="main" class="container">
     <header class="page-head">
       <h1>Publications</h1>
       <p>Also on <a href="{SCHOLAR}">Google Scholar</a> and the <a href="{TUM}">TUM ITR page</a>.</p>
@@ -466,8 +468,13 @@ def build_publications():
       <p class="stats-note">Totals from <a href="{SCHOLAR}">Google Scholar</a><span id="scholar-updated"></span>.</p>
     </header>
     <section>
+      <div class="pub-search">
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        <input type="search" id="pub-search" placeholder="Search by title, author, venue or year" aria-label="Search publications" autocomplete="off">
+      </div>
       <div class="filters" role="group" aria-label="Filter by period">{era_filters}</div>
       <div class="filters" role="group" aria-label="Filter by type">{filters}</div>
+      <p class="pub-count" id="pub-count" aria-live="polite"></p>
       <p class="no-pubs" hidden>No publications match these filters.</p>
 {chr(10).join(groups)}
     </section>
@@ -483,7 +490,7 @@ def build_cv():
     page = f"""{head("CV · Hossein Kavianirad", "Curriculum vitae of Hossein Kavianirad: education, research experience, teaching, awards and skills.", "../", "/cv/")}
 <body>
 {nav("CV", "../")}
-  <main class="container">
+  <main id="main" class="container">
     <header class="page-head">
       <h1>Curriculum Vitae</h1>
       <p>Doctoral researcher in control and rehabilitation robotics at the Technical University of Munich.</p>
@@ -640,7 +647,7 @@ def build_teaching():
     page = f"""{head("Teaching · Hossein Kavianirad", "Teaching and student supervision of Hossein Kavianirad at TUM and Sharif University of Technology.", "../", "/teaching/")}
 <body>
 {nav("Teaching", "../")}
-  <main class="container">
+  <main id="main" class="container">
     <header class="page-head">
       <h1>Teaching &amp; Supervision</h1>
       <p>Courses, labs and student projects at the Technical University of Munich and Sharif University of Technology.</p>
