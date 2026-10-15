@@ -121,8 +121,12 @@
 
     <section id="publications">
       <h2 class="section-title">Selected publications <a class="more" href="publications/">All publications →</a></h2>
-      <ul class="pubs">
-      <li class="pub" id="sel-kavianirad2025dynamic" data-type="preprint">
+      <div class="filters era-toggle" role="group" aria-label="Show publications from">
+        <button type="button" data-era-filter="phd" aria-pressed="true">PhD · TUM (5)</button>
+        <button type="button" data-era-filter="msc" aria-pressed="false">M.Sc. · Sharif (4)</button>
+      </div>
+      <ul class="pubs era-list">
+      <li class="pub" id="sel-kavianirad2025dynamic" data-type="preprint" data-era="phd">
         <div class="venue-badge preprint" title="Preprint">arXiv</div>
         <div>
           <div class="pub-title">Cooperative Control of Hybrid FES-Exoskeleton: Dynamic Allocation</div>
@@ -138,7 +142,7 @@
 }</pre>
         </div>
       </li>
-      <li class="pub" id="sel-kavianirad2024dexterous" data-type="conference">
+      <li class="pub" id="sel-kavianirad2024dexterous" data-type="conference" data-era="phd">
         <div class="venue-badge conference" title="Conference">BioRob</div>
         <div>
           <div class="pub-title">Toward Dexterous Hand Functional Movement: Wearable Hybrid Soft Exoglove-FES Study</div>
@@ -156,7 +160,7 @@
 }</pre>
         </div>
       </li>
-      <li class="pub" id="sel-das2024framework" data-type="conference">
+      <li class="pub" id="sel-das2024framework" data-type="conference" data-era="phd">
         <div class="venue-badge conference" title="Conference">BioRob</div>
         <div>
           <div class="pub-title">Framework for Learning a Hand Intent Recognition Model from sEMG for FES-Based Control</div>
@@ -174,7 +178,7 @@
 }</pre>
         </div>
       </li>
-      <li class="pub" id="sel-kavianirad2023model" data-type="conference">
+      <li class="pub" id="sel-kavianirad2023model" data-type="conference" data-era="phd">
         <div class="venue-badge conference" title="Conference">ICORR</div>
         <div>
           <div class="pub-title">Model-Based Shared Control of a Hybrid FES-Exoskeleton: An Application in Participant-Specific Robotic Rehabilitation</div>
@@ -192,7 +196,7 @@
 }</pre>
         </div>
       </li>
-      <li class="pub" id="sel-kavianirad2022emg" data-type="conference">
+      <li class="pub" id="sel-kavianirad2022emg" data-type="conference" data-era="phd">
         <div class="venue-badge conference" title="Conference">IECBES</div>
         <div>
           <div class="pub-title">EMG-Based Volitional Torque Estimation in Functional Electrical Stimulation Control</div>
@@ -207,6 +211,79 @@
   year = {2022},
   pages = {171--176},
   doi = {10.1109/IECBES54088.2022.10079376}
+}</pre>
+        </div>
+      </li>
+      <li class="pub" id="sel-rad2018boundary" data-type="journal" data-era="msc">
+        <div class="venue-badge journal" title="Journal">JSV</div>
+        <div>
+          <div class="pub-title">Boundary control of flexible satellite vibration in planar motion</div>
+          <div class="pub-authors"><span class="me">H. K. Rad</span>, H. Salarieh, A. Alasty, R. Vatankhah</div>
+          <div class="pub-venue">Journal of Sound and Vibration, vol. 432, pp. 549–568, 2018</div>
+          <div class="pub-notes"><span class="pub-note first">First author</span></div>
+          <div class="pub-links"><a href="https://doi.org/10.1016/j.jsv.2018.06.052" target="_blank" rel="noopener">DOI</a><button type="button" data-bib="sel-bib-rad2018boundary">BibTeX</button><button type="button" class="cite-btn" data-cite="H. K. Rad, H. Salarieh, A. Alasty, and R. Vatankhah, &quot;Boundary control of flexible satellite vibration in planar motion,&quot; Journal of Sound and Vibration, vol. 432, pp. 549–568, 2018.">Cite</button><a class="scholar-badge" data-title="boundarycontrolofflexiblesatellitevibrationinplanarmotion" href="https://scholar.google.com/scholar?q=%22Boundary%20control%20of%20flexible%20satellite%20vibration%20in%20planar%20motion%22" target="_blank" rel="noopener" title="Google Scholar citations"><span class="sb-l"><i class="ai ai-google-scholar"></i> scholar</span><span class="sb-n" hidden></span></a></div>
+          <pre class="bibtex" id="sel-bib-rad2018boundary">@article{rad2018boundary,
+  title = {Boundary control of flexible satellite vibration in planar motion},
+  author = {H. K. Rad and H. Salarieh and A. Alasty and R. Vatankhah},
+  journal = {Journal of Sound and Vibration},
+  year = {2018},
+  volume = {432},
+  pages = {549--568},
+  doi = {10.1016/j.jsv.2018.06.052}
+}</pre>
+        </div>
+      </li>
+      <li class="pub" id="sel-rad2018antisymmetric" data-type="journal" data-era="msc">
+        <div class="venue-badge journal" title="Journal">Acta Astronaut.</div>
+        <div>
+          <div class="pub-title">Boundary control of anti-symmetric vibration of satellite with flexible appendages in planar motion with exponential stability</div>
+          <div class="pub-authors"><span class="me">H. K. Rad</span>, H. Salarieh, A. Alasty, R. Vatankhah</div>
+          <div class="pub-venue">Acta Astronautica, vol. 147, pp. 219–230, 2018</div>
+          <div class="pub-notes"><span class="pub-note first">First author</span></div>
+          <div class="pub-links"><a href="https://doi.org/10.1016/j.actaastro.2018.03.050" target="_blank" rel="noopener">DOI</a><button type="button" data-bib="sel-bib-rad2018antisymmetric">BibTeX</button><button type="button" class="cite-btn" data-cite="H. K. Rad, H. Salarieh, A. Alasty, and R. Vatankhah, &quot;Boundary control of anti-symmetric vibration of satellite with flexible appendages in planar motion with exponential stability,&quot; Acta Astronautica, vol. 147, pp. 219–230, 2018.">Cite</button><a class="scholar-badge" data-title="boundarycontrolofantisymmetricvibrationofsatellitewithflexibleappendagesinplanarmotionwithexponentialstability" href="https://scholar.google.com/scholar?q=%22Boundary%20control%20of%20anti-symmetric%20vibration%20of%20satellite%20with%20flexible%20appendages%20in%20planar%20motion%20with%20exponential%20stability%22" target="_blank" rel="noopener" title="Google Scholar citations"><span class="sb-l"><i class="ai ai-google-scholar"></i> scholar</span><span class="sb-n" hidden></span></a></div>
+          <pre class="bibtex" id="sel-bib-rad2018antisymmetric">@article{rad2018antisymmetric,
+  title = {Boundary control of anti-symmetric vibration of satellite with flexible appendages in planar motion with exponential stability},
+  author = {H. K. Rad and H. Salarieh and A. Alasty and R. Vatankhah},
+  journal = {Acta Astronautica},
+  year = {2018},
+  volume = {147},
+  pages = {219--230},
+  doi = {10.1016/j.actaastro.2018.03.050}
+}</pre>
+        </div>
+      </li>
+      <li class="pub" id="sel-kavianirad2018frictional" data-type="journal" data-era="msc">
+        <div class="venue-badge journal" title="Journal">Granular Matter</div>
+        <div>
+          <div class="pub-title">Frictional viscoelastic based model for spherical particles collision</div>
+          <div class="pub-authors"><span class="me">H. Kaviani Rad</span>, H. Nejat Pishkenari</div>
+          <div class="pub-venue">Granular Matter, vol. 20, no. 4, art. 62, 2018</div>
+          <div class="pub-notes"><span class="pub-note first">First author</span></div>
+          <div class="pub-links"><a href="https://doi.org/10.1007/s10035-018-0835-9" target="_blank" rel="noopener">DOI</a><button type="button" data-bib="sel-bib-kavianirad2018frictional">BibTeX</button><button type="button" class="cite-btn" data-cite="H. Kaviani Rad, and H. Nejat Pishkenari, &quot;Frictional viscoelastic based model for spherical particles collision,&quot; Granular Matter, vol. 20, no. 4, art. 62, 2018.">Cite</button><a class="scholar-badge" data-title="frictionalviscoelasticbasedmodelforsphericalparticlescollision" href="https://scholar.google.com/scholar?q=%22Frictional%20viscoelastic%20based%20model%20for%20spherical%20particles%20collision%22" target="_blank" rel="noopener" title="Google Scholar citations"><span class="sb-l"><i class="ai ai-google-scholar"></i> scholar</span><span class="sb-n" hidden></span></a></div>
+          <pre class="bibtex" id="sel-bib-kavianirad2018frictional">@article{kavianirad2018frictional,
+  title = {Frictional viscoelastic based model for spherical particles collision},
+  author = {H. Kaviani Rad and H. Nejat Pishkenari},
+  journal = {Granular Matter},
+  year = {2018},
+  volume = {20},
+  doi = {10.1007/s10035-018-0835-9}
+}</pre>
+        </div>
+      </li>
+      <li class="pub" id="sel-nejat2017transformation" data-type="journal" data-era="msc">
+        <div class="venue-badge journal" title="Journal">Granular Matter</div>
+        <div>
+          <div class="pub-title">Transformation of sliding motion to rolling during spheres collision</div>
+          <div class="pub-authors">H. Nejat Pishkenari, <span class="me">H. Kaviani Rad</span>, H. Jafari Shad</div>
+          <div class="pub-venue">Granular Matter, vol. 19, no. 4, art. 70, 2017</div>
+          <div class="pub-links"><a href="https://doi.org/10.1007/s10035-017-0755-0" target="_blank" rel="noopener">DOI</a><button type="button" data-bib="sel-bib-nejat2017transformation">BibTeX</button><button type="button" class="cite-btn" data-cite="H. Nejat Pishkenari, H. Kaviani Rad, and H. Jafari Shad, &quot;Transformation of sliding motion to rolling during spheres collision,&quot; Granular Matter, vol. 19, no. 4, art. 70, 2017.">Cite</button><a class="scholar-badge" data-title="transformationofslidingmotiontorollingduringspherescollision" href="https://scholar.google.com/scholar?q=%22Transformation%20of%20sliding%20motion%20to%20rolling%20during%20spheres%20collision%22" target="_blank" rel="noopener" title="Google Scholar citations"><span class="sb-l"><i class="ai ai-google-scholar"></i> scholar</span><span class="sb-n" hidden></span></a></div>
+          <pre class="bibtex" id="sel-bib-nejat2017transformation">@article{nejat2017transformation,
+  title = {Transformation of sliding motion to rolling during spheres collision},
+  author = {H. Nejat Pishkenari and H. Kaviani Rad and H. Jafari Shad},
+  journal = {Granular Matter},
+  year = {2017},
+  volume = {19},
+  doi = {10.1007/s10035-017-0755-0}
 }</pre>
         </div>
       </li>

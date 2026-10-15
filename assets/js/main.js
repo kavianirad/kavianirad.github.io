@@ -46,19 +46,34 @@
       });
     });
 
-    var filterBtns = document.querySelectorAll(".filters button");
-    filterBtns.forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var f = btn.getAttribute("data-filter");
-        filterBtns.forEach(function (b) { b.setAttribute("aria-pressed", b === btn ? "true" : "false"); });
-        document.querySelectorAll(".pub").forEach(function (p) {
-          p.hidden = !(f === "all" || p.getAttribute("data-type") === f);
-        });
-        document.querySelectorAll(".pub-group").forEach(function (g) {
-          g.hidden = !g.querySelector(".pub:not([hidden])");
+    // Publication filters: type (journal, conference, ...) and period (PhD / M.Sc.).
+    var state = { type: "all", era: "all" };
+    var eraToggle = document.querySelector(".era-toggle");
+    if (eraToggle) state.era = "phd";  // homepage: PhD papers by default
+    function applyFilters() {
+      document.querySelectorAll(".pub").forEach(function (p) {
+        p.hidden = !((state.type === "all" || p.getAttribute("data-type") === state.type) &&
+                     (state.era === "all" || p.getAttribute("data-era") === state.era));
+      });
+      document.querySelectorAll(".pub-group").forEach(function (g) {
+        g.hidden = !g.querySelector(".pub:not([hidden])");
+      });
+      var empty = document.querySelector(".no-pubs");
+      if (empty) empty.hidden = !!document.querySelector(".pub:not([hidden])");
+    }
+    function wire(selector, attr, key) {
+      var btns = document.querySelectorAll(selector);
+      btns.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          state[key] = btn.getAttribute(attr);
+          btns.forEach(function (b) { b.setAttribute("aria-pressed", b === btn ? "true" : "false"); });
+          applyFilters();
         });
       });
-    });
+    }
+    wire("[data-filter]", "data-filter", "type");
+    wire("[data-era-filter]", "data-era-filter", "era");
+    if (document.querySelector(".pub")) applyFilters();
 
     var copyBtn = document.getElementById("copy-bio");
     if (copyBtn) copyBtn.addEventListener("click", function () {

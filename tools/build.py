@@ -102,7 +102,7 @@ PUBLICATIONS = [
         bib_type="inproceedings", bib_venue=("booktitle", "3rd Workshop on Closing the Reality Gap in Sim2Real Transfer for Robotics"), bib_extra={},
     ),
     dict(
-        key="rad2018boundary", year=2018, type="journal", badge="JSV",
+        selected=True, key="rad2018boundary", year=2018, type="journal", badge="JSV",
         title="Boundary control of flexible satellite vibration in planar motion",
         authors=["H. K. Rad", "H. Salarieh", "A. Alasty", "R. Vatankhah"],
         venue="Journal of Sound and Vibration, vol. 432, pp. 549–568, 2018",
@@ -110,7 +110,7 @@ PUBLICATIONS = [
         bib_type="article", bib_venue=("journal", "Journal of Sound and Vibration"), bib_extra={"volume": "432", "pages": "549--568", "doi": "10.1016/j.jsv.2018.06.052"},
     ),
     dict(
-        key="rad2018antisymmetric", year=2018, type="journal", badge="Acta Astronaut.",
+        selected=True, key="rad2018antisymmetric", year=2018, type="journal", badge="Acta Astronaut.",
         title="Boundary control of anti-symmetric vibration of satellite with flexible appendages in planar motion with exponential stability",
         authors=["H. K. Rad", "H. Salarieh", "A. Alasty", "R. Vatankhah"],
         venue="Acta Astronautica, vol. 147, pp. 219–230, 2018",
@@ -118,7 +118,7 @@ PUBLICATIONS = [
         bib_type="article", bib_venue=("journal", "Acta Astronautica"), bib_extra={"volume": "147", "pages": "219--230", "doi": "10.1016/j.actaastro.2018.03.050"},
     ),
     dict(
-        key="kavianirad2018frictional", year=2018, type="journal", badge="Granular Matter",
+        selected=True, key="kavianirad2018frictional", year=2018, type="journal", badge="Granular Matter",
         title="Frictional viscoelastic based model for spherical particles collision",
         authors=["H. Kaviani Rad", "H. Nejat Pishkenari"],
         venue="Granular Matter, vol. 20, no. 4, art. 62, 2018",
@@ -126,7 +126,7 @@ PUBLICATIONS = [
         bib_type="article", bib_venue=("journal", "Granular Matter"), bib_extra={"volume": "20", "doi": "10.1007/s10035-018-0835-9"},
     ),
     dict(
-        key="nejat2017transformation", year=2017, type="journal", badge="Granular Matter",
+        selected=True, key="nejat2017transformation", year=2017, type="journal", badge="Granular Matter",
         title="Transformation of sliding motion to rolling during spheres collision",
         authors=["H. Nejat Pishkenari", "H. Kaviani Rad", "H. Jafari Shad"],
         venue="Granular Matter, vol. 19, no. 4, art. 70, 2017",
@@ -196,6 +196,11 @@ def norm_title(t):
     return re.sub(r"[^a-z0-9]", "", t.lower())
 
 
+def era(p):
+    """PhD (TUM, 2021-) or M.Sc. (Sharif, up to 2018) period of a publication."""
+    return "phd" if p["year"] >= 2021 else "msc"
+
+
 def pub_html(p, prefix):
     links = "".join(f'<a href="{esc(u)}" target="_blank" rel="noopener">{esc(n)}</a>' for n, u in p["links"].items())
     bib_id = f"{prefix}-bib-{p['key']}"
@@ -211,7 +216,7 @@ def pub_html(p, prefix):
     badge = (f'<a class="scholar-badge" data-title="{norm_title(p["title"])}" href="{scholar_q}" target="_blank" rel="noopener" '
              f'title="Google Scholar citations"><span class="sb-l"><i class="ai ai-google-scholar"></i> scholar</span>'
              f'<span class="sb-n" hidden></span></a>')
-    return f"""      <li class="pub" id="{p['key'] if prefix == 'all' else prefix + '-' + p['key']}" data-type="{p['type']}">
+    return f"""      <li class="pub" id="{p['key'] if prefix == 'all' else prefix + '-' + p['key']}" data-type="{p['type']}" data-era="{era(p)}">
         <div class="venue-badge {p['type']}" title="{TYPE_LABEL[p['type']]}">{esc(p['badge'])}</div>
         <div>
           <div class="pub-title">{esc(p['title'])}</div>
@@ -375,7 +380,11 @@ def build_index():
 
     <section id="publications">
       <h2 class="section-title">Selected publications <a class="more" href="publications/">All publications →</a></h2>
-      <ul class="pubs">
+      <div class="filters era-toggle" role="group" aria-label="Show publications from">
+        <button type="button" data-era-filter="phd" aria-pressed="true">PhD · TUM ({sum(1 for p in selected if era(p) == "phd")})</button>
+        <button type="button" data-era-filter="msc" aria-pressed="false">M.Sc. · Sharif ({sum(1 for p in selected if era(p) == "msc")})</button>
+      </div>
+      <ul class="pubs era-list">
 {pubs}
       </ul>
     </section>
@@ -423,7 +432,12 @@ def build_publications():
         items = "\n".join(pub_html(p, "all") for p in PUBLICATIONS if p["year"] == y)
         groups.append(f'    <div class="pub-group">\n      <h2 class="pub-year">{y}</h2>\n      <ul class="pubs">\n{items}\n      </ul>\n    </div>')
     counts = {t: sum(1 for p in PUBLICATIONS if p["type"] == t) for t in TYPE_LABEL}
-    filters = '<button type="button" data-filter="all" aria-pressed="true">All (%d)</button>' % len(PUBLICATIONS)
+    n_phd = sum(1 for p in PUBLICATIONS if era(p) == "phd")
+    era_filters = ('<span class="filter-label">Period</span>'
+                   '<button type="button" data-era-filter="all" aria-pressed="true">All</button>'
+                   f'<button type="button" data-era-filter="phd" aria-pressed="false">PhD · TUM ({n_phd})</button>'
+                   f'<button type="button" data-era-filter="msc" aria-pressed="false">M.Sc. · Sharif ({len(PUBLICATIONS) - n_phd})</button>')
+    filters = '<span class="filter-label">Type</span><button type="button" data-filter="all" aria-pressed="true">All (%d)</button>' % len(PUBLICATIONS)
     for t, label in TYPE_LABEL.items():
         if counts[t]:
             filters += f'<button type="button" data-filter="{t}" aria-pressed="false">{label} ({counts[t]})</button>'
@@ -443,7 +457,9 @@ def build_publications():
       <p class="stats-note">Totals from <a href="{SCHOLAR}">Google Scholar</a><span id="scholar-updated"></span>.</p>
     </header>
     <section>
+      <div class="filters" role="group" aria-label="Filter by period">{era_filters}</div>
       <div class="filters" role="group" aria-label="Filter by type">{filters}</div>
+      <p class="no-pubs" hidden>No publications match these filters.</p>
 {chr(10).join(groups)}
     </section>
   </main>
