@@ -10,7 +10,6 @@ import json
 import re
 import sys
 import time
-import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
 
@@ -43,53 +42,8 @@ def fetch():
     raise SystemExit(f"Cannot fetch Google Scholar profile: {last}")
 
 
-def semantic_scholar():
-    """Per-paper counts from Semantic Scholar, used when Google Scholar refuses the runner."""
-    sys.path.insert(0, __file__.rsplit("/", 1)[0])
-    from build import PUBLICATIONS  # noqa: E402
-    pubs = {}
-    for p in PUBLICATIONS:
-        doi = (p.get("bib_extra") or {}).get("doi")
-        arxiv = next((u.rsplit("/", 1)[1] for n, u in p["links"].items() if n == "arXiv"), None)
-        if doi:
-            url = f"https://api.semanticscholar.org/graph/v1/paper/DOI:{doi}?fields=citationCount,url"
-        elif arxiv:
-            url = f"https://api.semanticscholar.org/graph/v1/paper/arXiv:{arxiv}?fields=citationCount,url"
-        else:
-            q = urllib.parse.quote(p["title"])
-            url = f"https://api.semanticscholar.org/graph/v1/paper/search/match?query={q}&fields=citationCount,url"
-        for attempt in range(4):
-            try:
-                with urllib.request.urlopen(urllib.request.Request(url, headers=HEADERS), timeout=30) as r:
-                    d = json.load(r)
-                d = d["data"][0] if "data" in d else d
-                pubs[norm(p["title"])] = {"title": p["title"], "citations": d.get("citationCount") or 0,
-                                         "url": d.get("url", "")}
-                break
-            except Exception as e:  # noqa: BLE001
-                print(f"  {p['key']}: {e}")
-                time.sleep(5 * (attempt + 1))
-        time.sleep(3)
-    counts = sorted((v["citations"] for v in pubs.values()), reverse=True)
-    return {
-        "source": "semantic_scholar",
-        "updated": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
-        "publications": pubs,
-        "citations_sum": sum(counts),
-        "h_index_ss": sum(1 for i, c in enumerate(counts) if c >= i + 1),
-    }
-
-
 def main(out):
-    try:
-        page = fetch()
-    except SystemExit as e:
-        print(e, "- falling back to Semantic Scholar")
-        data = semantic_scholar()
-        with open(out, "w", encoding="utf-8") as f:
-            json.dump(data, f, ensure_ascii=False, indent=1)
-        print(f"{len(data['publications'])} publications from Semantic Scholar")
-        return
+    page = fetch()  # exits non-zero on failure; the workflow then keeps the last good data
     stats = [int(x) for x in re.findall(r'<td class="gsc_rsb_std">(\d+)</td>', page)]
     pubs = {}
     for row in re.findall(r'<tr class="gsc_a_tr">(.*?)</tr>', page, re.S):

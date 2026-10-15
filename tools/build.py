@@ -50,9 +50,9 @@ PUBLICATIONS = [
         highlights=["Clinical study with stroke patients"],
         title="Repetitive Grasping After Stroke Assisted by Functional Electrical Stimulation",
         authors=["C. Höhler", "S. Endo", "J. Hermsdörfer", "L. Cazenave", "H. Kavianirad", "K. Jahn", "C. Krewer"],
-        venue="Artificial Organs, 2025",
+        venue="Artificial Organs, vol. 49, no. 12, pp. 1733–1744, 2025",
         links={"DOI": "https://doi.org/10.1111/aor.15033"},
-        bib_type="article", bib_venue=("journal", "Artificial Organs"), bib_extra={"doi": "10.1111/aor.15033"},
+        bib_type="article", bib_venue=("journal", "Artificial Organs"), bib_extra={"volume": "49", "number": "12", "pages": "1733--1744", "doi": "10.1111/aor.15033"},
     ),
     dict(
         key="kavianirad2024dexterous", year=2024, type="conference", badge="BioRob", selected=True,
@@ -151,8 +151,8 @@ NEWS = [
     ("2022", 'Received the <strong>Best Paper Award</strong> at IEEE-EMBS IECBES 2022 for EMG-based volitional torque estimation in FES control.'),
 ]
 
-# Fallback shown until the daily Google Scholar update has run (from the CV, Oct 2026).
-STATS = {"citations": 102, "h_index": 5}
+# Google Scholar totals shown before the page loads the live data (profile, 15 Oct 2026).
+STATS = {"citations": 144, "h_index": 7, "i10_index": 5}
 
 TYPE_LABEL = {"journal": "Journal", "conference": "Conference", "workshop": "Workshop", "preprint": "Preprint"}
 
@@ -438,7 +438,7 @@ def build_publications():
         <div><dt>Publications</dt><dd>{len(PUBLICATIONS)}</dd></div>
         <div><dt>Citations</dt><dd data-stat="citations">{STATS["citations"]}</dd></div>
         <div><dt>h-index</dt><dd data-stat="h_index">{STATS["h_index"]}</dd></div>
-        <div><dt>Awards</dt><dd>{sum(1 for p in PUBLICATIONS if p.get("award"))}</dd></div>
+        <div><dt>i10-index</dt><dd data-stat="i10_index">{STATS["i10_index"]}</dd></div>
       </dl>
       <p class="stats-note">Totals from <a href="{SCHOLAR}">Google Scholar</a><span id="scholar-updated"></span>.</p>
     </header>
