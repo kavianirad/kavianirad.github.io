@@ -273,7 +273,6 @@ def footer(base):
         <a href="{SCHOLAR}" aria-label="Google Scholar"><i class="ai ai-google-scholar"></i></a>
         <a href="{LINKEDIN}" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
         <a href="{GITHUB}" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-        <a href="{DBLP}" aria-label="dblp"><i class="ai ai-dblp"></i></a>
       </div>
     </div>
   </footer>"""
@@ -286,7 +285,7 @@ def person_jsonld():
    "image":"{SITE_URL}/assets/img/profile.jpg",
    "affiliation":{{"@type":"Organization","name":"Chair of Information-oriented Control, Technical University of Munich"}},
    "alumniOf":["Sharif University of Technology","Shiraz University"],
-   "sameAs":["{SCHOLAR}","{LINKEDIN}","{TUM}","{DBLP}","{GITHUB}"]}}
+   "sameAs":["{SCHOLAR}","{LINKEDIN}","{TUM}","{GITHUB}"]}}
   </script>"""
 
 
@@ -310,7 +309,6 @@ def build_index():
           <a href="{SCHOLAR}"><i class="ai ai-google-scholar"></i>Google Scholar</a>
           <a href="{LINKEDIN}"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
           <a href="{TUM}"><i class="fa-solid fa-building-columns"></i>TUM profile</a>
-          <a href="{DBLP}"><i class="ai ai-dblp"></i>dblp</a>
           <a href="assets/Kavianirad_CV.pdf"><i class="fa-solid fa-file-pdf"></i>CV (PDF)</a>
         </div>
         <div class="callout"><i class="fa-solid fa-graduation-cap"></i>&nbsp; <strong>Students:</strong> I have supervised 16 students so far and offer Bachelor's and Master's theses in control, learning, dynamic modeling, and rehabilitation robotics. Feel free to email me with your CV and transcripts.</div>
@@ -435,7 +433,7 @@ def build_publications():
   <main class="container">
     <header class="page-head">
       <h1>Publications</h1>
-      <p>Also on <a href="{SCHOLAR}">Google Scholar</a>, <a href="{DBLP}">dblp</a>, and the <a href="{TUM}">TUM ITR page</a>.</p>
+      <p>Also on <a href="{SCHOLAR}">Google Scholar</a> and the <a href="{TUM}">TUM ITR page</a>.</p>
       <dl class="stats" id="scholar-stats">
         <div><dt>Publications</dt><dd>{len(PUBLICATIONS)}</dd></div>
         <div><dt>Citations</dt><dd data-stat="citations">{STATS["citations"]}</dd></div>
