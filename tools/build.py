@@ -229,7 +229,7 @@ def pub_html(p, prefix):
 
 
 def nav(active, base):
-    items = [("About", f"{base}"), ("Publications", f"{base}publications/"), ("CV", f"{base}cv/")]
+    items = [("About", f"{base}"), ("Publications", f"{base}publications/"), ("Teaching", f"{base}teaching/"), ("CV", f"{base}cv/")]
     lis = "\n".join(
         f'        <li><a href="{href}"{" aria-current=\"page\"" if name == active else ""}>{name}</a></li>'
         for name, href in items)
@@ -403,6 +403,15 @@ def build_index():
       </div>
     </section>
 
+    <section id="teaching">
+      <h2 class="section-title">Teaching <a class="more" href="teaching/">Teaching &amp; supervision →</a></h2>
+      <ul class="teach-list">
+        <li><strong>Advanced Nonlinear Control</strong> <span>M.Sc. course, TUM · teaching assistant · 5 semesters</span></li>
+        <li><strong>Advanced Control and Robotics Lab</strong> <span>M.Sc. lab, TUM · Sliding Mode Control experiment · 4 semesters</span></li>
+        <li><strong>16 students supervised</strong> <span>7 B.Sc. theses, 1 M.Sc. thesis, 8 internships</span></li>
+      </ul>
+    </section>
+
     <section id="contact">
       <h2 class="section-title">Contact</h2>
       <div class="two-col">
@@ -535,7 +544,7 @@ def build_cv():
     </section>
 
     <section>
-      <h2 class="section-title">Teaching &amp; supervision</h2>
+      <h2 class="section-title">Teaching &amp; supervision <a class="more" href="../teaching/">Details →</a></h2>
       <ul class="timeline">
         <li>
           <div class="when">2021 – present · 5 semesters</div>
@@ -604,6 +613,65 @@ def build_cv():
     write("cv/index.html", page)
 
 
+TEACHING = [
+    dict(when="WS 2021/22 – present · 5 semesters", title="Advanced Nonlinear Control", where="M.Sc. course · Chair of Information-oriented Control (ITR), TUM",
+         role="Teaching assistant", text="Supervision of student tutorial reports on advanced nonlinear-control topics, including literature reviews and presentations."),
+    dict(when="SS 2023 – SS 2026 · 4 semesters", title="Advanced Control and Robotics Lab", where="M.Sc. lab · LSR and ITR, TUM",
+         role="Lab supervisor", text="Supervisor of the Sliding Mode Control experiment: preparation, supervision of student groups and assessment."),
+    dict(when="Fall 2016", title="Advanced Control", where="M.Sc. course · Sharif University of Technology",
+         role="Teaching assistant", text="Teaching assistantship funded by Iran's National Elites Foundation."),
+    dict(when="Fall 2015", title="Dynamics", where="B.Sc. course · Sharif University of Technology",
+         role="Teaching assistant", text=""),
+    dict(when="2015 – 2016 · 3 semesters", title="Dynamics of Machinery and Vibrations Lab", where="Sharif University of Technology",
+         role="Laboratory assistant", text=""),
+]
+
+
+def build_teaching():
+    items = []
+    for t in TEACHING:
+        text = f"<p>{esc(t['text'])}</p>" if t["text"] else ""
+        items.append(f"""        <li>
+          <div class="when">{esc(t['when'])}</div>
+          <h3>{esc(t['title'])} <span class="role-tag">{esc(t['role'])}</span></h3>
+          <div class="where">{esc(t['where'])}</div>
+          {text}
+        </li>""")
+    page = f"""{head("Teaching · Hossein Kavianirad", "Teaching and student supervision of Hossein Kavianirad at TUM and Sharif University of Technology.", "../", "/teaching/")}
+<body>
+{nav("Teaching", "../")}
+  <main class="container">
+    <header class="page-head">
+      <h1>Teaching &amp; Supervision</h1>
+      <p>Courses, labs and student projects at the Technical University of Munich and Sharif University of Technology.</p>
+    </header>
+
+    <section>
+      <h2 class="section-title">Student supervision</h2>
+      <dl class="stats">
+        <div><dt>Students</dt><dd>16</dd></div>
+        <div><dt>B.Sc. theses</dt><dd>7</dd></div>
+        <div><dt>M.Sc. thesis</dt><dd>1</dd></div>
+        <div><dt>Internships</dt><dd>8</dd></div>
+      </dl>
+      <p class="stats-note">At ITR, TUM since 2021: 7 B.Sc. theses, 1 M.Sc. thesis, 2 research internships and 6 engineering internships in control, learning, dynamic modeling and rehabilitation robotics.</p>
+      <div class="callout"><strong>Looking for a thesis?</strong> I offer Bachelor's and Master's theses in control, learning, dynamic modeling and rehabilitation robotics. Email me at <a href="mailto:{EMAIL}">{EMAIL}</a> with your CV and transcripts.</div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Courses &amp; labs</h2>
+      <ul class="timeline">
+{chr(10).join(items)}
+      </ul>
+    </section>
+  </main>
+{footer("../")}
+</body>
+</html>
+"""
+    write("teaching/index.html", page)
+
+
 def write(rel, text):
     path = os.path.join(ROOT, rel)
     os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -616,3 +684,4 @@ if __name__ == "__main__":
     build_index()
     build_publications()
     build_cv()
+    build_teaching()

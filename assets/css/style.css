@@ -326,3 +326,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .page-head + section .filters + .filters { margin-top: -.9rem; }
 .era-toggle { margin: -.25rem 0 1rem; }
 .no-pubs { color: var(--text-muted); }
+.role-tag { font-size: .75rem; font-weight: 500; color: var(--accent); background: var(--accent-soft); border-radius: 6px; padding: .1rem .45rem; margin-left: .35rem; vertical-align: middle; white-space: nowrap; }
+.teach-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .6rem; }
+.teach-list li { display: flex; flex-wrap: wrap; gap: .25rem .75rem; align-items: baseline; padding-bottom: .6rem; border-bottom: 1px dashed var(--border); }
+.teach-list li:last-child { border-bottom: 0; }
+.teach-list span { color: var(--text-muted); font-size: .9rem; }
