@@ -1,0 +1,69 @@
+{
+ "source": "google_scholar",
+ "updated": "2026-10-15",
+ "citations": 144,
+ "h_index": 7,
+ "i10_index": 5,
+ "publications": {
+  "hybridrobotfesrehabilitationafterstrokeshorttermperformancefatigueandpatientexperience": {
+   "title": "Hybrid robot & FES rehabilitation after stroke: Short-term performance, fatigue, and patient experience",
+   "citations": 0,
+   "url": "https://scholar.google.com/scholar?q=%22Hybrid%20robot%20%26%20FES%20rehabilitation%20after%20stroke%3A%20Short-term%20performance%2C%20fatigue%2C%20and%20patient%20experience%22"
+  },
+  "cooperativecontrolofhybridfesexoskeletondynamicallocation": {
+   "title": "Cooperative Control of Hybrid FES-Exoskeleton: Dynamic Allocation",
+   "citations": 0,
+   "url": "https://scholar.google.com/scholar?q=%22Cooperative%20Control%20of%20Hybrid%20FES-Exoskeleton%3A%20Dynamic%20Allocation%22"
+  },
+  "repetitivegraspingafterstrokeassistedbyfunctionalelectricalstimulation": {
+   "title": "Repetitive Grasping After Stroke Assisted by Functional Electrical Stimulation",
+   "citations": 4,
+   "url": "https://scholar.google.com/scholar?q=%22Repetitive%20Grasping%20After%20Stroke%20Assisted%20by%20Functional%20Electrical%20Stimulation%22"
+  },
+  "towarddexteroushandfunctionalmovementwearablehybridsoftexoglovefesstudy": {
+   "title": "Toward Dexterous Hand Functional Movement: Wearable Hybrid Soft Exoglove-FES Study",
+   "citations": 10,
+   "url": "https://scholar.google.com/scholar?q=%22Toward%20Dexterous%20Hand%20Functional%20Movement%3A%20Wearable%20Hybrid%20Soft%20Exoglove-FES%20Study%22"
+  },
+  "frameworkforlearningahandintentrecognitionmodelfromsemgforfesbasedcontrol": {
+   "title": "Framework for Learning a Hand Intent Recognition Model from sEMG for FES-Based Control",
+   "citations": 5,
+   "url": "https://scholar.google.com/scholar?q=%22Framework%20for%20Learning%20a%20Hand%20Intent%20Recognition%20Model%20from%20sEMG%20for%20FES-Based%20Control%22"
+  },
+  "modelbasedsharedcontrolofahybridfesexoskeletonanapplicationinparticipantspecificroboticrehabilitation": {
+   "title": "Model-Based Shared Control of a Hybrid FES-Exoskeleton: An Application in Participant-Specific Robotic Rehabilitation",
+   "citations": 11,
+   "url": "https://scholar.google.com/scholar?q=%22Model-Based%20Shared%20Control%20of%20a%20Hybrid%20FES-Exoskeleton%3A%20An%20Application%20in%20Participant-Specific%20Robotic%20Rehabilitation%22"
+  },
+  "emgbasedvolitionaltorqueestimationinfunctionalelectricalstimulationcontrol": {
+   "title": "EMG-Based Volitional Torque Estimation in Functional Electrical Stimulation Control",
+   "citations": 10,
+   "url": "https://scholar.google.com/scholar?q=%22EMG-Based%20Volitional%20Torque%20Estimation%20in%20Functional%20Electrical%20Stimulation%20Control%22"
+  },
+  "thegapinfunctionalelectricalstimulationsimulation": {
+   "title": "The Gap in Functional Electrical Stimulation Simulation",
+   "citations": 7,
+   "url": "https://scholar.google.com/scholar?q=%22The%20Gap%20in%20Functional%20Electrical%20Stimulation%20Simulation%22"
+  },
+  "boundarycontrolofflexiblesatellitevibrationinplanarmotion": {
+   "title": "Boundary control of flexible satellite vibration in planar motion",
+   "citations": 46,
+   "url": "https://scholar.google.com/scholar?q=%22Boundary%20control%20of%20flexible%20satellite%20vibration%20in%20planar%20motion%22"
+  },
+  "boundarycontrolofantisymmetricvibrationofsatellitewithflexibleappendagesinplanarmotionwithexponentialstability": {
+   "title": "Boundary control of anti-symmetric vibration of satellite with flexible appendages in planar motion with exponential stability",
+   "citations": 35,
+   "url": "https://scholar.google.com/scholar?q=%22Boundary%20control%20of%20anti-symmetric%20vibration%20of%20satellite%20with%20flexible%20appendages%20in%20planar%20motion%20with%20exponential%20stability%22"
+  },
+  "frictionalviscoelasticbasedmodelforsphericalparticlescollision": {
+   "title": "Frictional viscoelastic based model for spherical particles collision",
+   "citations": 8,
+   "url": "https://scholar.google.com/scholar?q=%22Frictional%20viscoelastic%20based%20model%20for%20spherical%20particles%20collision%22"
+  },
+  "transformationofslidingmotiontorollingduringspherescollision": {
+   "title": "Transformation of sliding motion to rolling during spheres collision",
+   "citations": 8,
+   "url": "https://scholar.google.com/scholar?q=%22Transformation%20of%20sliding%20motion%20to%20rolling%20during%20spheres%20collision%22"
+  }
+ }
+}
