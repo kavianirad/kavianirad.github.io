@@ -358,3 +358,10 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .to-top:hover { color: var(--accent); border-color: var(--accent); }
 @media print { .to-top, .skip-link, .pub-search { display: none !important; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* ---------- Audit fixes ---------- */
+/* Highlights strip: keep a gap before the next section's divider instead of a double line. */
+section.highlights { margin-bottom: 2.75rem; }
+/* Publication link chips and the Scholar badge share one height, comfortable for touch. */
+.pub-links a, .pub-links button { min-height: 26px; display: inline-flex; align-items: center; }
+.pub-links a.scholar-badge { min-height: 26px; }
