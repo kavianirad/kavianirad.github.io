@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
+Disallow: /atlas/
 Sitemap: https://kavianirad.github.io/sitemap.xml
