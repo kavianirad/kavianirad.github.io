@@ -136,19 +136,19 @@ PUBLICATIONS = [
 ]
 
 NEWS = [
+    ("Sep 2026", 'Journal paper on hybrid robot &amp; FES rehabilitation after stroke published in <em>JRATE</em>. '
+                 '<a href="https://doi.org/10.1177/20556683261488467">Paper</a>'),
     ("Jul 2026", 'Gave the ITR doctoral seminar talk <em>“Cooperative Shared Control of Hybrid FES-Exoskeleton”</em>. '
                  '<a href="https://www.ce.cit.tum.de/ics/news/article/the-next-doctoral-seminar-talk-will-take-place-next-monday-july-20th-and-will-be-given-by-hossein-kavianirad-the-title-of-the-talk-is-cooperative-shared-control-of-hybrid-fes-exoskeleton/">Announcement</a>'),
-    ("2026", 'Journal paper on hybrid robot &amp; FES rehabilitation after stroke published in <em>JRATE</em>. '
-             '<a href="https://doi.org/10.1177/20556683261488467">Paper</a>'),
     ("Nov 2025", 'New preprint, under review at <em>IEEE Transactions on Control Systems Technology</em>: <em>Cooperative Control of Hybrid FES-Exoskeleton: Dynamic Allocation</em>. '
                  '<a href="https://arxiv.org/abs/2511.10117">arXiv</a>'),
+    ("Jun 2025", 'Paper on FES-assisted repetitive grasping after stroke published in <em>Artificial Organs</em>. '
+                 '<a href="https://doi.org/10.1111/aor.15033">Paper</a>'),
     ("Mar 2025", 'Our EU project <strong>ReHyb</strong> on hybrid FES-exoskeleton stroke rehabilitation was featured in a TUM press release. '
                  '<a href="https://idw-online.de/de/news848815">Press release</a> · <a href="https://youtu.be/OboVMCkM9Yk">Video</a>'),
-    ("2025", 'Paper on FES-assisted repetitive grasping after stroke published in <em>Artificial Organs</em>. '
-             '<a href="https://doi.org/10.1111/aor.15033">Paper</a>'),
-    ("2024", 'Two papers presented at <strong>IEEE BioRob 2024</strong>: a hybrid soft exoglove-FES study and sEMG-based hand intent recognition for FES.'),
-    ("2023", 'Presented model-based shared control of a hybrid FES-exoskeleton at <strong>ICORR 2023</strong>.'),
-    ("2022", 'Received the <strong>Best Paper Award</strong> at IEEE-EMBS IECBES 2022 for EMG-based volitional torque estimation in FES control.'),
+    ("Sep 2024", 'Two papers presented at <strong>IEEE BioRob 2024</strong>: a hybrid soft exoglove-FES study and sEMG-based hand intent recognition for FES.'),
+    ("Sep 2023", 'Presented model-based shared control of a hybrid FES-exoskeleton at <strong>ICORR 2023</strong>.'),
+    ("Dec 2022", 'Received the <strong>Best Paper Award</strong> at IEEE-EMBS IECBES 2022 for EMG-based volitional torque estimation in FES control.'),
 ]
 
 # Google Scholar totals shown before the page loads the live data (profile, 15 Oct 2026).
